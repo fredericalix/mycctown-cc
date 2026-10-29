@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  /* Clever Cloud style guide tokens */
+  --cc-primary: #a51050;
+  --cc-purple: #3a3871;
+  --cc-orange: #f57461;
+  --cc-red-1: #e63f48;
+  --cc-red-2: #de233c;
+  --cc-red-3: #cb1c42;
+  --cc-black: #13172e;
+  --cc-tint-black: #1c2045;
+  --cc-white: #f1f0fb;
+  --cc-bg-light: #f9f9fb;
+  --cc-gray: #73738e;
+  --cc-gray-soft: #deddee;
+  --cc-green: #11bea9;
+  --cc-gradient-red: linear-gradient(90deg, #f57461 0%, #cb1c42 50.48%, #a51050 100%);
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Utility font classes used sparingly for the medieval town brand. */
+.font-brand {
+  font-family: 'MedievalSharp', serif;
+  letter-spacing: 0.01em;
+}
+.font-overtitle {
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* Minimal flat button that matches the CC accent. */
+.btn-cc {
+  background: var(--cc-primary);
+  color: var(--cc-white);
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: filter 120ms ease;
+}
+.btn-cc:hover { filter: brightness(1.1); }
+.btn-cc:active { filter: brightness(0.9); }
+
+.btn-cc-gradient {
+  background: var(--cc-gradient-red);
+  color: var(--cc-white);
+  padding: 0.7rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(165, 16, 80, 0.35);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.btn-cc-gradient:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+/* Panel surface over the 3D canvas. */
+.cc-panel {
+  background: rgba(28, 32, 69, 0.78);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(222, 221, 238, 0.08);
+  color: var(--cc-white);
+}
+
+.cc-border-soft { border-color: rgba(222, 221, 238, 0.1); }
+.cc-muted { color: rgba(241, 240, 251, 0.65); }
+
+/* Mayor advisor popup: slide up + fade in when an announcement appears. */
+@keyframes mayor-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+.mayor-pop {
+  animation: mayor-in 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mayor-pop { animation: none; }
+}

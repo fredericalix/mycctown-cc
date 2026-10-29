@@ -1,0 +1,23 @@
+backend/target
+frontend/node_modules
+frontend/dist
+.env
+scripts/.env.dev
+.DS_Store
+# Ignore everything under .claude/ at the top level (settings.json,
+# settings.local.json, caches, etc.), except project-scoped skills which
+# are versioned with the code.
+.claude/*
+!.claude/skills/
+
+# Third-party / private media — not redistributed (see docs/ASSETS.md).
+# NOTE: in the private repo these are already tracked; adding a new file
+# there needs `git add -f`.
+frontend/public/assets/gltf/
+frontend/public/mayor/
+frontend/public/music/
+music/*.mp3
+
+# Personal deployment state — kept locally, never published
+.clever.json
+CLAUDE.local.md
